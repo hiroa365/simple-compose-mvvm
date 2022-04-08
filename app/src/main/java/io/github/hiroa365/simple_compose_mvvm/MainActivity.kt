@@ -10,6 +10,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import io.github.hiroa365.simple_compose_mvvm.screen.main.MainScreen
+import io.github.hiroa365.simple_compose_mvvm.screen.main.MainScreenViewModel
 import io.github.hiroa365.simple_compose_mvvm.ui.theme.SimplecomposemvvmTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    MainScreen(MainScreenViewModel())
                 }
             }
         }
