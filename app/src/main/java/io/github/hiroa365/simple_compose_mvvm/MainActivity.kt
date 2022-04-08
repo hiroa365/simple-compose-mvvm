@@ -10,10 +10,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import dagger.hilt.android.AndroidEntryPoint
 import io.github.hiroa365.simple_compose_mvvm.screen.main.MainScreen
 import io.github.hiroa365.simple_compose_mvvm.screen.main.MainScreenViewModel
 import io.github.hiroa365.simple_compose_mvvm.ui.theme.SimplecomposemvvmTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainScreen(MainScreenViewModel())
+                    MainScreen()
                 }
             }
         }

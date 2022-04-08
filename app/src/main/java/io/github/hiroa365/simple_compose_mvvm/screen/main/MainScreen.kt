@@ -8,11 +8,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.hilt.navigation.compose.hiltViewModel
 
 
 @Composable
 fun MainScreen(
-    viewModel: MainScreenViewModel,
+    viewModel: MainScreenViewModel = hiltViewModel(),
 ) {
 
     val state by viewModel.state.collectAsState()
