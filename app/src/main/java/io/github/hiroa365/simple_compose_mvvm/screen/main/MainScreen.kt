@@ -17,9 +17,16 @@ import androidx.hilt.navigation.compose.hiltViewModel
 fun MainScreen(
     viewModel: MainScreenViewModel = hiltViewModel(),
 ) {
-
+    /**
+     * ViewModelで保持しているStateを監視
+     * 変化があった場合は再コンポーズされる
+     */
     val state by viewModel.state.collectAsState()
 
+    /**
+     * ViewModelがこの関数内だけで使用するため、
+     * ViewModelにイベントを渡す場合は、Eventを送るためのリスナーを渡している
+     */
     MainScreen(
         state = state,
         onClickCountUp = { viewModel.onEvent(OnClickCountUpEvent) }
@@ -36,7 +43,15 @@ fun MainScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        /**
+         * Stateのカウンターを表示する
+         */
         Text(text = state.counter.toString())
+
+        /**
+         * ボタン押下でStateのカウンターを直接カウントアップせずに、
+         * クリックイベントをViewModelに投げる
+         */
         Button(onClick = onClickCountUp) {
             Text(text = "Count Up")
         }

@@ -10,6 +10,9 @@ import javax.inject.Inject
 @HiltViewModel
 class MainScreenViewModel @Inject constructor() : ViewModel() {
 
+    /**
+     * StateはStateFlowで保持
+     */
     private val _state = MutableStateFlow(MainScreenState.initValue)
     val state = _state.asStateFlow()
 
@@ -18,6 +21,9 @@ class MainScreenViewModel @Inject constructor() : ViewModel() {
         _state.value = newState()
     }
 
+    /**
+     * Viewから送られるイベントを処理
+     */
     fun onEvent(event: MainViewEvent) {
         when (event) {
             OnClickCountUpEvent -> onClickCountUpEvent()
