@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.hiroa365.simple_compose_mvvm.screen.main.MainScreen
 import io.github.hiroa365.simple_compose_mvvm.screen.main.MainScreenViewModel
+import io.github.hiroa365.simple_compose_mvvm.screen.navigation.AppNavHost
 import io.github.hiroa365.simple_compose_mvvm.ui.theme.SimplecomposemvvmTheme
 
 @AndroidEntryPoint
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainScreen()
+                    AppNavHost()
                 }
             }
         }
